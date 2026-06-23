@@ -561,12 +561,23 @@ export default function EscalaVidaInterior() {
                     </div>
                     {estaPorDebajo && (
                       <div style={{ fontFamily: "sans-serif", fontSize: 10, color: indicador.color, fontWeight: 600 }}>
-                        ✓ recorrido
+                        ✓
+                      </div>
+                    )}
+                    {!estaSeleccionado && !estaPorDebajo && (
+                      <div style={{ fontFamily: "sans-serif", fontSize: 14, color: "#BBB" }}>
+                        ▼
+                      </div>
+                    )}
+                    {estaSeleccionado && (
+                      <div style={{ fontFamily: "sans-serif", fontSize: 14, color: "rgba(255,255,255,0.7)" }}>
+                        ▲
                       </div>
                     )}
                   </div>
 
-                  {/* Contenido expandido */}
+                  {/* Contenido expandido - solo visible cuando está seleccionado */}
+                  {estaSeleccionado && (
                   <div style={{ padding: "0 16px 16px" }}>
                     <p style={{ fontSize: 14, lineHeight: 1.7, color: "#333", marginTop: 12, marginBottom: 12 }}>
                       {nivel.descripcion}
@@ -618,6 +629,7 @@ export default function EscalaVidaInterior() {
                       </div>
                     )}
                   </div>
+                  )}
                 </div>
               );
             })}
