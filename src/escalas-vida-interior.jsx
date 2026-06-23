@@ -403,7 +403,7 @@ export default function EscalaVidaInterior() {
             </div>
             <div style={{ display: "flex", gap: 8 }}>
               <button
-                onClick={() => setVistaActiva("escala")}
+                onClick={() => setVistaActiva("escala")} onTouchEnd={(e) => { e.preventDefault(); setVistaActiva("escala"); }}
                 style={{
                   padding: "6px 14px", borderRadius: 20, border: "none", cursor: "pointer",
                   fontFamily: "sans-serif", fontSize: 12, fontWeight: 600,
@@ -414,7 +414,7 @@ export default function EscalaVidaInterior() {
                 Explorar
               </button>
               <button
-                onClick={() => setVistaActiva("perfil")}
+                onClick={() => setVistaActiva("perfil")} onTouchEnd={(e) => { e.preventDefault(); setVistaActiva("perfil"); }}
                 style={{
                   padding: "6px 14px", borderRadius: 20, border: "none", cursor: "pointer",
                   fontFamily: "sans-serif", fontSize: 12, fontWeight: 600,
@@ -439,7 +439,7 @@ export default function EscalaVidaInterior() {
               return (
                 <button
                   key={ind.id}
-                  onClick={() => setIndicadorActivo(idx)}
+                  onClick={() => setIndicadorActivo(idx)} onTouchEnd={(e) => { e.preventDefault(); setIndicadorActivo(idx); }}
                   style={{
                     flexShrink: 0,
                     padding: "8px 14px",
@@ -490,7 +490,7 @@ export default function EscalaVidaInterior() {
               {[1, 2, 3, 4, 5].map((n) => (
                 <div
                   key={n}
-                  onClick={() => seleccionarNivel(n)}
+                  onClick={() => seleccionarNivel(n)} onTouchEnd={(e) => { e.preventDefault(); seleccionarNivel(n); }}
                   style={{
                     flex: 1, height: 8, borderRadius: 4, cursor: "pointer",
                     background: nivelSeleccionado >= n ? indicador.color : "#DDD",
@@ -517,7 +517,7 @@ export default function EscalaVidaInterior() {
               return (
                 <div
                   key={nivel.nivel}
-                  onClick={() => seleccionarNivel(nivel.nivel)}
+                  onClick={() => seleccionarNivel(nivel.nivel)} onTouchEnd={(e) => { e.preventDefault(); seleccionarNivel(nivel.nivel); }}
                   style={{
                     borderRadius: 10,
                     border: `2px solid ${estaSeleccionado ? indicador.color : "#E5E0D8"}`,
